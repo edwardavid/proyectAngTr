@@ -1,0 +1,56 @@
+.detail-grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  
+  .detail-row {
+    display: flex;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .detail-label {
+    flex: 1;
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .detail-value {
+    flex: 2;
+  }
+  
+  .total {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #3f51b5;
+  }
+  
+  .loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: #f44336;
+  }
+  
+  .error-container mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin-bottom: 1rem;
+  }
+  
+  .error-container button {
+    margin-top: 1rem;
+  }
