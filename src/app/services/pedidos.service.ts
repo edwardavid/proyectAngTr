@@ -1,3 +1,4 @@
+// src/app/services/pedidos.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { Pedido } from '../models/pedido';
@@ -18,6 +19,4 @@ export class PedidosService {
     const sdk = this.totalumService.getSDK();
     return from(sdk.collection('pedidos').doc(id).get());
   }
-
-  // Agrega métodos para crear, actualizar y eliminar pedidos si es necesario
 }

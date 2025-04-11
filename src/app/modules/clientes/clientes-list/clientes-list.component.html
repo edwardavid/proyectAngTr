@@ -1,1 +1,51 @@
-<p>clientes-list works!</p>
+<div class="container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Listado de Clientes</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="standard" class="filter-field">
+          <mat-label>Buscar cliente</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Buscar..." #input>
+        </mat-form-field>
+  
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" matSort>
+            <!-- Nombre Column -->
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+              <td mat-cell *matCellDef="let cliente"> {{cliente.nombre}} </td>
+            </ng-container>
+  
+            <!-- Fecha Nacimiento Column -->
+            <ng-container matColumnDef="fechaNacimiento">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Nacimiento </th>
+              <td mat-cell *matCellDef="let cliente"> {{cliente.fechaNacimiento | date}} </td>
+            </ng-container>
+  
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+              <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+            </ng-container>
+  
+            <!-- Telefono Column -->
+            <ng-container matColumnDef="telefono">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Teléfono </th>
+              <td mat-cell *matCellDef="let cliente"> {{cliente.telefono}} </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectRow(row)"></tr>
+  
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No hay datos que coincidan con el filtro "{{input.value}}"</td>
+            </tr>
+          </table>
+  
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Seleccionar página"></mat-paginator>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
