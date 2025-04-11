@@ -11,13 +11,13 @@ export class ClientesService {
 
   getClientes(): Observable<Cliente[]> {
     const sdk = this.totalumService.getSDK();
-    return from(sdk.collection('clientes').get());
+    return from(sdk.collection('clientes').get() as Promise<Cliente[]>);
   }
 
   getCliente(id: string): Observable<Cliente> {
     const sdk = this.totalumService.getSDK();
-    return from(sdk.collection('clientes').doc(id).get());
+    return from(sdk.collection('clientes').doc(id).get() as Promise<Cliente>);
   }
 
-  // Agrega métodos para crear, actualizar y eliminar clientes si es necesario
+ 
 }

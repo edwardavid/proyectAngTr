@@ -1,4 +1,3 @@
-// src/app/services/pedidos.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { Pedido } from '../models/pedido';
@@ -12,11 +11,11 @@ export class PedidosService {
 
   getPedidos(): Observable<Pedido[]> {
     const sdk = this.totalumService.getSDK();
-    return from(sdk.collection('pedidos').get());
+    return from(sdk.collection('pedidos').get() as Promise<Pedido[]>);
   }
 
   getPedido(id: string): Observable<Pedido> {
     const sdk = this.totalumService.getSDK();
-    return from(sdk.collection('pedidos').doc(id).get());
+    return from(sdk.collection('pedidos').doc(id).get() as Promise<Pedido>);
   }
 }

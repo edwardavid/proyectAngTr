@@ -9,7 +9,7 @@ import { PedidosService } from '../../../services/pedidos.service';
 @Component({
   selector: 'app-pedidos-list',
   templateUrl: './pedidos-list.component.html',
-  styleUrls: ['./pedidos-list.component.scss']
+  styleUrls: ['./pedidos-list.component.css']
 })
 export class PedidosListComponent implements OnInit {
   displayedColumns: string[] = ['numeroPedido', 'importe', 'importeImpuestos', 'cantidadProductos', 'fecha', 'nombreCliente'];

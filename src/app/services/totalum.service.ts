@@ -88,13 +88,13 @@ export class TotalumService {
       collection: (collectionName: string) => {
         return {
           get: async () => {
-            // Retornamos los datos mock según la colección solicitada
+            
             return MOCK_DATA[collectionName as keyof typeof MOCK_DATA] || [];
           },
           doc: (id: string) => {
             return {
               get: async () => {
-                // Encontramos el documento por ID en la colección correspondiente
+               
                 const collection = MOCK_DATA[collectionName as keyof typeof MOCK_DATA] || [];
                 return collection.find((item: any) => {
                   if (collectionName === 'pedidos') {

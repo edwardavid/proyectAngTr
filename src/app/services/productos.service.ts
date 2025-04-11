@@ -11,12 +11,12 @@ export class ProductosService {
 
   getProductos(): Observable<Producto[]> {
     const sdk = this.totalumService.getSDK();
-    return from(sdk.collection('productos').get());
+    return from(sdk.collection('productos').get() as Promise<Producto[]>);
   }
 
   getProducto(id: string): Observable<Producto> {
     const sdk = this.totalumService.getSDK();
-    return from(sdk.collection('productos').doc(id).get());
+    return from(sdk.collection('productos').doc(id).get() as Promise<Producto>);
   }
 
   // Agrega métodos para crear, actualizar y eliminar productos si es necesario
